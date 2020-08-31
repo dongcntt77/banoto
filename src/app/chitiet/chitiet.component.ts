@@ -1,3 +1,4 @@
+import { Routes, ActivatedRoute } from '@angular/router';
 import { Component, OnInit, AfterViewInit, Renderer2 } from '@angular/core';
 
 @Component({
@@ -6,10 +7,15 @@ import { Component, OnInit, AfterViewInit, Renderer2 } from '@angular/core';
   styleUrls: ['./chitiet.component.css']
 })
 export class ChitietComponent implements OnInit, AfterViewInit {
-
-  constructor(private renderer: Renderer2) { }
+  tensp = '';
+  constructor(private renderer: Renderer2, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      let id = Number.parseInt(params['id']);
+      this.tensp = 'Tên sản phẩm ' + id;
+    });
+
   }
   ngAfterViewInit() { 
     this.loadScripts();

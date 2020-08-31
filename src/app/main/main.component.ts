@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit, Renderer2 } from '@angular/core';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-main',
@@ -12,7 +13,10 @@ export class MainComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
   }
   ngAfterViewInit() { 
-    this.loadScripts();
+    setTimeout(() => {
+      this.loadScripts();
+    });
+    
   }
   public loadScripts() {
     this.renderExternalScript('assets/js/main.js').onload = () => {

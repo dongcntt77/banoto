@@ -8,7 +8,7 @@ import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 const routes: Routes = [
   {
-    path: 'chitiet',
+    path: 'chitiet/:id',
     component: ChitietComponent,
   },
   {
