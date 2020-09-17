@@ -1,5 +1,4 @@
 import { Component, Injector, OnInit } from '@angular/core';
-import { ApiService } from '../lib/api.service';
 import 'rxjs/add/observable/combineLatest';
 import 'rxjs/add/operator/takeUntil';
 import { BaseComponent } from '../lib/base-component';

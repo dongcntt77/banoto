@@ -1,7 +1,5 @@
 import { BaseComponent } from './../lib/base-component';
-import { Routes, ActivatedRoute } from '@angular/router';
-import { Component, OnInit, AfterViewInit, Renderer2, Injector } from '@angular/core';
-import { ApiService } from '../lib/api.service';
+import { Component, OnInit, Injector } from '@angular/core';
 
 @Component({
   selector: 'app-chitiet',

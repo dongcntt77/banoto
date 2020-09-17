@@ -1,7 +1,8 @@
 import { BaseComponent } from './../lib/base-component';
-import { Component, OnInit, AfterViewInit, Renderer2, Injector } from '@angular/core';
-import { Observable, timer } from 'rxjs';
-import { ApiService } from '../lib/api.service';
+import { Component, OnInit,Injector } from '@angular/core';
+import { Observable} from 'rxjs';
+import 'rxjs/add/observable/combineLatest';
+import 'rxjs/add/operator/takeUntil';
 
 @Component({
   selector: 'app-main',
