@@ -8,7 +8,7 @@ import { ApiService } from '../lib/api.service';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent extends BaseComponent implements OnInit, AfterViewInit {
+export class MainComponent extends BaseComponent implements OnInit {
   list_item:any;
   constructor(injector: Injector) { 
     super(injector);
@@ -24,11 +24,4 @@ export class MainComponent extends BaseComponent implements OnInit, AfterViewIni
       });
     }, err => { });
   }
-  ngAfterViewInit() { 
-    // setTimeout(() => {
-    //   this.loadScripts();
-    // }); 
-  }
-  
-
 }
