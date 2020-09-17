@@ -222,7 +222,13 @@
                     <div class="tab-pane fade show active" id="Sellers" role="tabpanel">
                         <div class="row">
                             <div class="product_carousel product_column5 owl-carousel">
-                               <div class="col-lg-3">
+                               
+                               
+                               
+                               
+                               <ng-container *ngFor="let it of list_item">
+                    
+                                <div class="col-lg-3">
                                    <div class="product_items">
                                         <article class="single_product">
                                             <figure>
@@ -238,8 +244,8 @@
                                                 </div>
                                                 <div class="product_content">
                                                     <div class="product_content_inner">
-                                                        <p class="manufacture_product"><a href="#">Parts</a></p>
-                                                        <h4 class="product_name"><a href="product-details.html">Nunc Neque Eros</a></h4>
+                                                        <p class="manufacture_product"><a href="#">Neeeeeeeeeeeeeeeeeee</a></p>
+                                                        <h4 class="product_name"><a [routerLink]="['/chitiet',it.item_id]">{{it.item_name}}</a></h4>
                                                         <div class="product_rating">
                                                            <ul>
                                                                <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
@@ -306,6 +312,13 @@
                                         </article>
                                     </div>
                                </div>
+
+                            </ng-container>
+
+
+
+
+
                                <div class="col-lg-3">
                                    <div class="product_items">
                                         <article class="single_product">
@@ -390,6 +403,9 @@
                                         </article>
                                     </div>
                                </div>
+
+
+                               
                                <div class="col-lg-3">
                                    <div class="product_items">
                                         <article class="single_product">
@@ -492,7 +508,7 @@
                                                 <div class="product_content">
                                                     <div class="product_content_inner">
                                                         <p class="manufacture_product"><a href="#">Parts</a></p>
-                                                        <h4 class="product_name"><a routerLink="/chitiet/1">Tên sản phẩm 1</a></h4>
+                                                        <h4 class="product_name"><a [routerLink]="['/chitiet','80537b17-305e-4081-96e8-f135156f6e90']">Tên sản phẩm 1</a></h4>
                                                         <div class="product_rating">
                                                            <ul>
                                                                <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
@@ -532,7 +548,7 @@
                                                 <div class="product_content">
                                                     <div class="product_content_inner">
                                                         <p class="manufacture_product"><a href="#">Parts</a></p>
-                                                        <h4 class="product_name"><a routerLink="/chitiet/2">Tên sản phẩm 2</a></h4>
+                                                        <h4 class="product_name"><a [routerLink]="['/chitiet','4a9ab711-6053-43ee-bbeb-1ee5444fab88']">Tên sản phẩm 2</a></h4>
                                                         <div class="product_rating">
                                                            <ul>
                                                                <li><a href="#"><i class="ion-android-star-outline"></i></a></li>

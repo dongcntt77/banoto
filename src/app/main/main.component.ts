@@ -1,16 +1,25 @@
+import { BaseComponent } from './../lib/base-component';
 import { Component, OnInit, AfterViewInit, Renderer2 } from '@angular/core';
-import { timer } from 'rxjs';
+import { Observable, timer } from 'rxjs';
+import { ApiService } from '../lib/api.service';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit, AfterViewInit {
-
-  constructor(private renderer: Renderer2) { }
+export class MainComponent extends BaseComponent implements OnInit, AfterViewInit {
+  list_item:any;
+  constructor(private renderer: Renderer2,private _api: ApiService) { 
+    super();
+  }
 
   ngOnInit(): void {
+    Observable.combineLatest(
+      this._api.get('/api/item/get-all'),
+    ).takeUntil(this.unsubscribe).subscribe(res => {
+      this.list_item = res[0];
+    }, err => { });
   }
   ngAfterViewInit() { 
     setTimeout(() => {

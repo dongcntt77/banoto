@@ -1,19 +1,25 @@
+import { BaseComponent } from './../lib/base-component';
 import { Routes, ActivatedRoute } from '@angular/router';
 import { Component, OnInit, AfterViewInit, Renderer2 } from '@angular/core';
+import { ApiService } from '../lib/api.service';
 
 @Component({
   selector: 'app-chitiet',
   templateUrl: './chitiet.component.html',
   styleUrls: ['./chitiet.component.css']
 })
-export class ChitietComponent implements OnInit, AfterViewInit {
-  tensp = '';
-  constructor(private renderer: Renderer2, private route: ActivatedRoute) { }
+export class ChitietComponent extends BaseComponent implements OnInit, AfterViewInit {
+  item:any;
+  constructor(private renderer: Renderer2, private route: ActivatedRoute, private _api: ApiService) 
+  { super(); }
 
   ngOnInit(): void {
+    this.item = {};
     this.route.params.subscribe(params => {
-      let id = Number.parseInt(params['id']);
-      this.tensp = 'Tên sản phẩm ' + id;
+      let id = params['id'];
+      this._api.get('/api/item/get-by-id/'+id).takeUntil(this.unsubscribe).subscribe(res => {
+        this.item = res;
+      }); 
     });
 
   }
