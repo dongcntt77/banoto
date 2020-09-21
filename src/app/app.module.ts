@@ -7,10 +7,16 @@ import { MainComponent } from './main/main.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import {HttpClientModule} from '@angular/common/http';
+import { ListComponent } from './list/list.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 const routes: Routes = [
   {
     path: 'chitiet/:id',
     component: ChitietComponent,
+  },
+  {
+    path: 'list/:id',
+    component: ListComponent,
   },
   {
     path: '',
@@ -23,12 +29,14 @@ const routes: Routes = [
     ChitietComponent,
     MainComponent,
     MenuComponent,
-    FooterComponent
+    FooterComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
