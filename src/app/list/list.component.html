@@ -41,12 +41,11 @@
                     </div>
                     <div class="widget_list widget_filter">
                         <h3>Price</h3>
-                        <form action="#"> 
+                        <!-- <form action="#">  -->
                             <div id="slider-range"></div>   
                             <button type="submit">Filter</button>
                             <input type="text" name="text" id="amount" />   
-
-                        </form> 
+                        <!-- </form>  -->
                     </div>
                     <div class="widget_list widget_categories">
                         <h3>Manufacturer</h3>
@@ -131,9 +130,8 @@
                         <button data-role="grid_list" type="button"  class="active btn-list" data-toggle="tooltip" title="List"></button>
                     </div>
                     <div class=" niceselect_option">
-                        <form class="select_option" action="#">
+                        <!-- <form class="select_option" action="#"> -->
                             <select name="orderby" id="short">
-
                                 <option selected value="1">Sort by average rating</option>
                                 <option  value="2">Sort by popularity</option>
                                 <option value="3">Sort by newness</option>
@@ -141,7 +139,7 @@
                                 <option value="5">Sort by price: high to low</option>
                                 <option value="6">Product Name: Z</option>
                             </select>
-                        </form>
+                        <!-- </form> -->
                     </div>
                     <div class="page_amount">
                         <p>Showing 1–9 of 21 results</p>
@@ -166,7 +164,7 @@
                                     <div class="product_content grid_content">
                                         <div class="product_content_inner">
                                             <p class="manufacture_product"><a href="#">Parts</a></p>
-                                            <h4 class="product_name"><a href="product-details.html">{{it.item_name}}</a></h4>
+                                            <h4 class="product_name"><a [routerLink]="['/chitiet',it.item_id]">{{it.item_name}}</a></h4>
                                             <div class="product_rating">
                                                <ul>
                                                    <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
@@ -192,7 +190,7 @@
                                     <div class="product_content list_content">
                                         <div class="left_caption">
                                            <p class="manufacture_product"><a href="#">Parts</a></p>
-                                            <h4 class="product_name"><a href="product-details.html">{{it.item_name}}</a></h4>
+                                            <h4 class="product_name"><a [routerLink]="['/chitiet',it.item_id]" >{{it.item_name}}</a></h4>
                                             <div class="product_rating">
                                                <ul>
                                                    <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
@@ -333,10 +331,10 @@
                         <h3>Newsletter Now</h3>
                         <p>Join 60.000+ subscribers and get a new discount coupon on every Wednesday.</p>
                         <div class="subscribe_form">
-                            <form id="mc-form" class="mc-form footer-newsletter" >
+                            <!-- <form id="mc-form" class="mc-form footer-newsletter" > -->
                                 <input id="mc-email" type="email" autocomplete="off" placeholder="Enter you email address here..." />
                                 <button id="mc-submit">Subscribe</button>
-                            </form>
+                            <!-- </form> -->
                             <!-- mailchimp-alerts Start -->
                             <div class="mailchimp-alerts text-centre">
                                 <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
