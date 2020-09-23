@@ -139,6 +139,15 @@
                                 <option value="5">Sort by price: high to low</option>
                                 <option value="6">Product Name: Z</option>
                             </select>
+                            <select name="orderby" [(ngModel)]="pageSize" (ngModelChange)="loadPage(1)">
+                                <option selected value="3">3</option>
+                                <option  value="5">5</option>
+                                <option  value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
                         <!-- </form> -->
                     </div>
                     <div class="page_amount">
@@ -212,7 +221,7 @@
                                             <p class="text_available">Availability: <span>In Stock</span></p>
                                             <div class="action_links">
                                                 <ul> 
-                                                    <li class="add_to_cart"><a href="cart.html" title="Add to cart">Add to cart</a></li>
+                                                    <li class="add_to_cart"><a (click)="addToCart(it)" title="Add to cart">Add to cart</a></li>
                                                     <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><i class="icon-heart"></i>  Add to Wishlist</a></li>
                                                     <li class="compare"><a href="#" title="compare"><i class="icon-rotate-cw"></i>Add to Compare</a></li>
                                                 </ul>

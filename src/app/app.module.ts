@@ -10,8 +10,13 @@ import {HttpClientModule} from '@angular/common/http';
 import { ListComponent } from './list/list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CartComponent } from './cart/cart.component';
 const routes: Routes = [
+  {
+    path: 'cart',
+    component: CartComponent,
+  },
   {
     path: 'login',
     component: LoginComponent,
@@ -37,10 +42,12 @@ const routes: Routes = [
     MenuComponent,
     FooterComponent,
     ListComponent,
-    LoginComponent
+    LoginComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
     NgbModule,

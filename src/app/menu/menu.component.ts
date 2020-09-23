@@ -9,6 +9,7 @@ import { BaseComponent } from '../lib/base-component';
 })
 export class MenuComponent extends BaseComponent implements OnInit {
   menus:any;
+  total:any;
   constructor(injector: Injector) { 
     super(injector);
   }
@@ -16,6 +17,9 @@ export class MenuComponent extends BaseComponent implements OnInit {
     this._api.get('/api/itemgroup/get-menu').takeUntil(this.unsubscribe).subscribe(res => {
       this.menus = res;
     }); 
+    this._cart.items.subscribe((res) => {
+      this.total = res? res.length:0;
+    });
   }
 
 }
