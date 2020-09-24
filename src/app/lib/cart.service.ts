@@ -56,7 +56,7 @@ export class CartService {
     let local_storage = JSON.parse(localStorage.getItem('cart'));
     for (let x of local_storage) {
       if (x.item_id == item.item_id) {
-        x.quantity += 1;
+        x.quantity = item.quantity;
         break;
       }
     }

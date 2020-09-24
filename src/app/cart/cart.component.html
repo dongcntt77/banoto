@@ -41,7 +41,7 @@
                                                 <td class="product_thumb"><a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a></td>
                                                 <td class="product_name"><a href="#">{{c.item_name}}</a></td>
                                                 <td class="product-price">{{c.item_price}}</td>
-                                                <td class="product_quantity"><label>Quantity</label> <input min="1" max="100" (change)="_cart.addQty(c)" [value]="c.quantity" type="number"></td>
+                                                <td class="product_quantity"><label>Quantity</label> <input #inp  min="1" max="100" (change)="addQty(c,inp.value)" [value]="c.quantity" type="number"></td>
                                                 <td class="product_total">£130.00</td>
                                             </tr>
                                         </tbody>
