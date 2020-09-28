@@ -31,8 +31,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     MenuComponent,
-    FooterComponent
-  ],
+    FooterComponent ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),

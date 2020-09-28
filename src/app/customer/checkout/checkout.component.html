@@ -1,12 +1,12 @@
-  <!--breadcrumbs area start-->
-  <div class="breadcrumbs_area">
+ <!--breadcrumbs area start-->
+ <div class="breadcrumbs_area">
     <div class="container">   
         <div class="row">
             <div class="col-12">
                 <div class="breadcrumb_content">
                     <ul>
                         <li><a href="index.html">home</a></li>
-                        <li>Shopping Cart</li>
+                        <li>Checkout</li>
                     </ul>
                 </div>
             </div>
@@ -15,90 +15,131 @@
 </div>
 <!--breadcrumbs area end-->
 
-<!--shopping cart area start -->
-<div class="cart_page_bg">
+<!--Checkout page section-->
+<div class="checkout_page_bg">
     <div class="container">
-        <div class="shopping_cart_area">
-            <form action="#"> 
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="table_desc">
-                                <div class="cart_page table-responsive">
+        <div class="Checkout_section">
+            <div class="row">
+               <div class="col-12">
+                    <div class="user-actions">
+                        <h3> 
+                            <i class="fa fa-file-o" aria-hidden="true"></i>
+                            Returning customer?
+                            <a class="Returning" href="#" data-toggle="collapse" data-target="#checkout_login" aria-expanded="true">Click here to login</a>     
+
+                        </h3>
+                         <div id="checkout_login" class="collapse" data-parent="#accordion">
+                            <div class="checkout_info">
+                                <p>If you have shopped with us before, please enter your details in the boxes below. If you are a new customer please proceed to the Billing & Shipping section.</p>  
+                                <form action="#">  
+                                    <div class="form_group">
+                                        <label>Username or email <span>*</span></label>
+                                        <input type="text">     
+                                    </div>
+                                    <div class="form_group">
+                                        <label>Password  <span>*</span></label>
+                                        <input type="text">     
+                                    </div> 
+                                    <div class="form_group group_3 ">
+                                        <button type="submit">Login</button>
+                                        <label for="remember_box">
+                                            <input id="remember_box" type="checkbox">
+                                            <span> Remember me </span>
+                                        </label>     
+                                    </div>
+                                    <a href="#">Lost your password?</a>
+                                </form>          
+                            </div>
+                        </div>    
+                    </div>
+                    <div class="user-actions">
+                        <h3> 
+                            <i class="fa fa-file-o" aria-hidden="true"></i>
+                            Returning customer?
+                            <a class="Returning" href="#" data-toggle="collapse" data-target="#checkout_coupon" aria-expanded="true">Click here to enter your code</a>     
+
+                        </h3>
+                         <div id="checkout_coupon" class="collapse" data-parent="#accordion">
+                            <div class="checkout_info">
+                                <form action="#">
+                                    <input placeholder="Coupon code" type="text">
+                                    <button type="submit">Apply coupon</button>
+                                </form>
+                            </div>
+                        </div>    
+                    </div>    
+               </div>
+            </div>
+            <div class="checkout_form">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="checkout_form_left">
+                            <form [formGroup]="hoadonForm" (ngSubmit)="onSubmit(hoadonForm.value)">
+                                <h3>Billing Details</h3>
+                                <div class="row">
+
+                                    <div class="col-lg-6 mb-20">
+                                        <label>Họ tên <span>*</span></label>
+                                        <input  formControlName="ho_ten" type="text">    
+                                    </div>
+                                    <div class="col-12 mb-20">
+                                        <label>Địa chỉ</label>
+                                        <input formControlName="dia_chi"  type="text">     
+                                    </div>   
+                                    <div class="payment_method">
+                                        <div class="order_button">
+                                            <button  type="submit">Proceed to PayPal</button> 
+                                        </div>    
+                                    </div> 	    	    	    
+                                </div>
+                            </form> 
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="checkout_form_right">
+                            <!-- <form action="#">     -->
+                                <h3>Your order</h3> 
+                                <div class="order_table table-responsive">
                                     <table>
                                         <thead>
                                             <tr>
-                                                <th class="product_remove">Delete</th>
-                                                <th class="product_thumb">Image</th>
-                                                <th class="product_name">Product</th>
-                                                <th class="product-price">Price</th>
-                                                <th class="product_quantity">Quantity</th>
-                                                <th class="product_total">Total</th>
+                                                <th>Product</th>
+                                                <th>Total</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr *ngFor="let c of items">
-                                               <td class="product_remove"><a (click)="_cart.deleteItem(c.item_id)"><i class="fa fa-trash-o"></i></a></td>
-                                                <td class="product_thumb"><a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a></td>
-                                                <td class="product_name"><a href="#">{{c.item_name}}</a></td>
-                                                <td class="product-price">{{c.item_price}}</td>
-                                                <td class="product_quantity"><label>Quantity</label> <input #inp  min="1" max="100" (change)="addQty(c,inp.value)" [value]="c.quantity" type="number"></td>
-                                                <td class="product_total">{{c.money}}</td>
-                                            </tr>
+                                            <tr *ngFor="let it of items">
+                                                <td>{{it.item_name}} <strong> × {{it.quantity}}</strong></td>
+                                                <td> {{it.money}}<td>
+                                            </tr> 
                                         </tbody>
-                                    </table>   
-                                </div>  
-                                <div class="cart_submit">
-                                    <button type="button" (click)="clearCart()">Clear cart</button>
-                                    <button type="submit">update cart</button>
-                                </div>      
-                            </div>
-                         </div>
-                     </div>
-                     <!--coupon code area start-->
-                    <div class="coupon_area">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6">
-                                <div class="coupon_code left">
-                                    <h3>Coupon</h3>
-                                    <div class="coupon_inner">   
-                                        <p>Enter your coupon code if you have one.</p>                                
-                                        <input placeholder="Coupon code" type="text">
-                                        <button type="submit">Apply coupon</button>
-                                    </div>    
+                                        <tfoot>
+                                            <tr>
+                                                <th>Cart Subtotal</th>
+                                                <td>$215.00</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Shipping</th>
+                                                <td><strong>$5.00</strong></td>
+                                            </tr>
+                                            <tr class="order_total">
+                                                <th>Order Total</th>
+                                                <td><strong>{{total}}</strong></td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>     
                                 </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="coupon_code right">
-                                    <h3>Cart Totals</h3>
-                                    <div class="coupon_inner">
-                                       <div class="cart_subtotal">
-                                           <p>Subtotal</p>
-                                           <p class="cart_amount">£215.00</p>
-                                       </div>
-                                       <div class="cart_subtotal ">
-                                           <p>Shipping</p>
-                                           <p class="cart_amount"><span>Flat Rate:</span> £255.00</p>
-                                       </div>
-                                       <a href="#">Calculate shipping</a>
-
-                                       <div class="cart_subtotal">
-                                           <p>Total</p>
-                                           <p class="cart_amount">{{total}}</p>
-                                       </div>
-                                       <div class="checkout_btn">
-                                           <a  routerLink="/customer/checkout" >Proceed to Checkout</a>
-                                       </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                              
+                            <!-- </form>  -->
+                        </div>        
                     </div>
-                    <!--coupon code area end-->
-                </form>   
+                </div> 
+            </div>        
         </div>
     </div>
 </div>
-<!--shopping cart area end -->
+
+<!--Checkout page section end-->
 
  <!--brand area start-->
 <div class="brand_area brand_padding">
