@@ -1,5 +1,5 @@
 import { Component, Injector, OnInit } from '@angular/core';
-import { BaseComponent } from '../lib/base-component';
+import { BaseComponent } from '../../lib/base-component';
 
 @Component({
   selector: 'app-list',

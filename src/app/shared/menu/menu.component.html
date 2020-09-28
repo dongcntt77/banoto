@@ -41,7 +41,7 @@
                             <ul>
                                 <li><a href="login.html">Register</a></li>
                                 <li><a href="login.html">login</a></li>
-                                <li><a routerLink="/cart" >Shopping Cart</a></li>
+                                <li><a routerLink="/customer/cart" >Shopping Cart</a></li>
                                 <li><a href="checkout.html">Checkout</a></li>
                             </ul>
                         </div> 
@@ -203,7 +203,7 @@
                                 <ul>
                                     <li><a routerLink="/login">Register</a></li>
                                     <li><a href="login.html">login</a></li>
-                                    <li><a routerLink="/cart">Shopping Cart({{total}})</a></li>
+                                    <li><a routerLink="/customer/cart">Shopping Cart({{total}})</a></li>
                                     <li><a href="checkout.html">Checkout</a></li>
                                 </ul>
                             </div>   
@@ -466,7 +466,7 @@
                                             <li *ngIf="mn.children !=null"><a class="active"  href="">{{mn.item_group_name}}<i class="fa fa-angle-down"></i></a>
                                                 <ul class="sub_menu">
                                                     <ng-container *ngFor="let m of mn.children">
-                                                        <li><a [routerLink] = "['/list',m.item_group_id]" >{{m.item_group_name}}</a></li>
+                                                        <li><a [routerLink] = "['/product/list',m.item_group_id]" >{{m.item_group_name}}</a></li>
                                                     </ng-container> 
                                                 </ul>
                                             </li>

@@ -1,59 +1,45 @@
-import { ChitietComponent } from './chitiet/chitiet.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { Routes, RouterModule } from '@angular/router';
-import { MainComponent } from './main/main.component';
-import { MenuComponent } from './menu/menu.component';
-import { FooterComponent } from './footer/footer.component';
-import {HttpClientModule} from '@angular/common/http';
-import { ListComponent } from './list/list.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { LoginComponent } from './login/login.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CartComponent } from './cart/cart.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MenuComponent } from './shared/menu/menu.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [
   {
-    path: 'cart',
-    component: CartComponent,
+    path: 'product',
+    loadChildren: () => import('./product/product.module').then((m) => m.ProductModule),
   },
   {
-    path: 'login',
-    component: LoginComponent,
+    path: 'customer',
+    loadChildren: () => import('./customer/customer.module').then((m) => m.CustomerModule),
   },
   {
-    path: 'chitiet/:id',
-    component: ChitietComponent,
-  },
-  {
-    path: 'list/:id',
-    component: ListComponent,
+    path: 'home',
+    loadChildren: () => import('./main/main.module').then((m) => m.MainModule),
   },
   {
     path: '',
-    component: MainComponent,
+    redirectTo: '/home',
+    pathMatch: 'full',
   },
+  { path: '**', component: NotFoundComponent}
 ];
 @NgModule({
   declarations: [
     AppComponent,
-    ChitietComponent,
-    MainComponent,
     MenuComponent,
-    FooterComponent,
-    ListComponent,
-    LoginComponent,
-    CartComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
-    NgbModule,
     ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

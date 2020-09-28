@@ -1,4 +1,4 @@
-import { BaseComponent } from './../lib/base-component';
+import { BaseComponent } from '../../lib/base-component';
 import { Component, Injector, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +8,7 @@ import { Component, Injector, OnInit } from '@angular/core';
 })
 export class CartComponent extends BaseComponent implements OnInit {
   items:any;
-  thanhtien:any;
+  total:any;
   constructor(injector: Injector) { 
     super(injector);
   }
@@ -16,9 +16,10 @@ export class CartComponent extends BaseComponent implements OnInit {
   ngOnInit(): void {
     this._cart.items.subscribe((res) => {
       this.items = res;
-      this.thanhtien = 0;
+      this.total = 0;
       for(let x of this.items){ 
-        this.thanhtien += x.quantity * x.item_price;
+        x.money = x.quantity * x.item_price;
+        this.total += x.quantity * x.item_price;
       } 
     });
   } 
@@ -28,6 +29,7 @@ export class CartComponent extends BaseComponent implements OnInit {
   }
   addQty(item, quantity){ 
     item.quantity =  quantity;
+    item.money =  Number.parseInt(item.quantity) *  item.item_price;
     this._cart.addQty(item);
   }
 }
